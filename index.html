@@ -1,22 +1,109 @@
-<div id="screen-question" class="fullscreen-center dsotm-bg">
-    <div class="celebrity mj"></div>
-    <div class="celebrity napoleon"></div>
-    <div class="celebrity queen"></div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Do you know Ivy?</title>
+    <style>
+        /* I put the CSS right here so it CANNOT fail to load */
+        body, html {
+            background-color: #000;
+            color: white;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Courier New', Courier, monospace;
+            overflow: hidden;
+        }
 
-    <div class="moon-prism"></div>
-    
-    <h1 class="ransom-note">
-        <span class="jump">D</span><span class="jump">o</span>
-        &nbsp;
-        <span class="jump">y</span><span class="jump">o</span><span class="jump">u</span>
-        &nbsp;
-        <span class="jump">k</span><span class="jump">n</span><span class="jump">o</span><span class="jump">w</span>
-        &nbsp;
-        <span class="jump" style="color: #ff0000;">I</span><span class="jump" style="color: #ff7f00;">v</span><span class="jump" style="color: #ffff00;">y</span><span class="jump" style="color: #00ff00;">?</span>
-    </h1>
+        .dsotm-bg {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
 
-    <div class="button-group">
-        <button onclick="handleQuestion('YES')">YES</button>
-        <button onclick="handleQuestion('yes')">yes</button>
+        /* The Moon Prism */
+        .moon-prism {
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, #fff 0%, #444 100%);
+            border-radius: 50%;
+            z-index: 2;
+            margin-bottom: 20px;
+            box-shadow: 0 0 30px rgba(255,255,255,0.4);
+        }
+
+        /* The Rainbow */
+        .rainbow {
+            position: absolute;
+            width: 200%;
+            height: 40px;
+            background: linear-gradient(to right, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8b00ff);
+            transform: rotate(-15deg);
+            opacity: 0.5;
+            z-index: 1;
+        }
+
+        .ransom-note {
+            display: flex;
+            gap: 10px;
+            z-index: 3;
+        }
+
+        .jump {
+            background: white;
+            color: black;
+            padding: 10px;
+            font-weight: bold;
+            font-size: 2rem;
+            display: inline-block;
+            animation: jitter 0.3s infinite alternate;
+        }
+
+        @keyframes jitter {
+            from { transform: translateY(0) rotate(-5deg); }
+            to { transform: translateY(-10px) rotate(5deg); }
+        }
+
+        .button-group { z-index: 4; margin-top: 30px; }
+        
+        button {
+            padding: 10px 20px;
+            background: white;
+            border: none;
+            cursor: pointer;
+            font-family: 'Impact';
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="screen-question" class="dsotm-bg">
+        <div class="rainbow"></div>
+        <div class="moon-prism"></div>
+        
+        <h1 class="ransom-note">
+            <span class="jump">D</span><span class="jump">o</span>
+            <span class="jump">y</span><span class="jump">o</span><span class="jump">u</span>
+            <span class="jump">k</span><span class="jump">n</span><span class="jump">o</span><span class="jump">w</span>
+            <span class="jump" style="background: red; color: white;">I</span>
+            <span class="jump" style="background: yellow;">v</span>
+            <span class="jump" style="background: green; color: white;">y</span>
+            <span class="jump">?</span>
+        </h1>
+
+        <div class="button-group">
+            <button onclick="handleQuestion('YES')">YES</button>
+            <button onclick="handleQuestion('yes')">yes</button>
+        </div>
     </div>
-</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
