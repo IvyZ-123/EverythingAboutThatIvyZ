@@ -1,1 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Do you know Ivy?</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+    <div id="screen-question" class="fullscreen-center">
+        <h1>Do you know Ivy?</h1>
+        <div class="button-group">
+            <button onclick="handleQuestion('YES')">YES</button>
+            <button onclick="handleQuestion('yes')">yes</button>
+        </div>
+    </div>
+
+    <div id="screen-response" class="fullscreen-center" style="display: none;">
+        <div id="response-message">
+            </div>
+        <div class="login-box">
+            <p>Your Access Key: <strong id="generated-key">-------</strong></p>
+            <input type="text" placeholder="Enter key here..." id="key-input">
+            <button onclick="handleLogin()">Unlock Website</button>
+        </div>
+    </div>
+
+    <div id="screen-unboxing" class="fullscreen-center" style="display: none;">
+        <div class="box-visual">
+            <div class="box-lid"></div>
+            <div class="box-body"></div>
+        </div>
+        <h3>Unboxing your access...</h3>
+    </div>
+
+    <div id="screen-main-content" class="container" style="display: none; opacity: 0;">
+        <header>
+            <h1>[Your Band Name] Main Portfolio</h1>
+        </header>
+        <section class="main-body">
+            <h2>Welcome, Traveler.</h2>
+            <p>You have successfully unlocked access to the archive. This is the main page.</p>
+            </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
